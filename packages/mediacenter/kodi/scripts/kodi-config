@@ -16,7 +16,7 @@ mkdir -p $KODI_ROOT/userdata
 chmod +x $KODI_ROOT/addons/*/bin/* 2>/dev/null
 
 # remove any user installed CE repo
-[ -d $KODI_ROOT/addons/repository.coreelec ] && rm -rf $KODI_ROOT/addons/repository.coreelec
+[ -d $KODI_ROOT/addons/repository.masqelec ] && rm -rf $KODI_ROOT/addons/repository.masqelec
 
 # setup Kodi sources
 if [ ! -f $KODI_ROOT/userdata/sources.xml ]; then

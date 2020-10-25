@@ -14,13 +14,11 @@
     <provides>@PKG_ADDON_PROVIDES@</provides>
   </extension>
   <extension point="xbmc.addon.metadata">
-    <summary>@PKG_SHORTDESC@</summary>
-    <description>
-@PKG_LONGDESC@
-    </description>
-    <disclaimer>
-@PKG_DISCLAIMER@
-    </disclaimer>
+    <summary lang="en">@PKG_SHORTDESC@</summary>
+    <description lang="en">@PKG_LONGDESC@</description>
+    <summary lang="es">@PKG_SHORTDESC_ES@</summary>
+    <description lang="es">@PKG_LONGDESC_ES@</description>
+    <disclaimer>@PKG_DISCLAIMER@</disclaimer>
     <platform>all</platform>
     <news>
 @PKG_ADDON_NEWS@

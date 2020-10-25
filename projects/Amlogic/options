@@ -125,7 +125,7 @@
   # Space separated list is supported,
   # e.g. ADDITIONAL_DRIVERS="DRIVER1 DRIVER2"
     ADDITIONAL_DRIVERS="gpu-aml kvimfan-aml openvfd-driver wifi_dummy-aml
-                        ap6xxx-aml mt7601u-aml mt7603u-aml mt7610u-aml qca9377-aml ssv6xxx-aml-3.14
+                        ap6xxx-aml mt7601u-aml mt7603u-aml mt7610u-aml qca9377-aml ssv6xxx-aml
                         RTL8188EU-aml RTL8189ES-aml RTL8189FS-aml RTL8192CU RTL8192DU RTL8192EU RTL8152-aml
                         RTL8723BS-aml RTL8723DS-aml RTL8812AU RTL8814AU RTL8821CU RTL8822BU-aml RTL8822BS-aml"
 
@@ -147,7 +147,7 @@
     INSTALLER_SUPPORT="no"
 
   # build and install driver addons (yes / no)
-    DRIVER_ADDONS_SUPPORT="yes"
+    DRIVER_ADDONS_SUPPORT="no"
 
   # driver addons to install:
   # for a list of additinoal drivers see packages/linux-driver-addons
@@ -160,7 +160,7 @@
   # additional packages to install:
   # Space separated list is supported,
   # e.g. ADDITIONAL_PACKAGES="PACKAGE1 PACKAGE2"
-    ADDITIONAL_PACKAGES="u-boot-script dtc u-boot-tools-aml CoreELEC-Debug-Scripts"
+    ADDITIONAL_PACKAGES="u-boot-script dtc u-boot-tools-aml"
 
   # add OOTB support for IR remote
     IR_REMOTE_KEYMAPS="$IR_REMOTE_KEYMAPS odroid wetek_hub wetek_play_2 tanix"
@@ -169,5 +169,5 @@
     ENTWARE_SUPPORT="yes"
     ENTWARE_ARCH="aarch64-k3.10"
 
-  # CoreELEC Subdevices
-    SUBDEVICES="LePotato Odroid_C2"
+  # masQelec Subdevices
+    SUBDEVICES=""

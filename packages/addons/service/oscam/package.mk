@@ -5,7 +5,7 @@ PKG_NAME="oscam"
 PKG_VERSION="e8ce7359fa920ca8d63aca9dde4f0eeb1f1f72f1"
 PKG_SHA256="93610d3d61479cae87340a0a3d7dc8c04b326b662f58f4181ac08c87897bd80b"
 PKG_VERSION_NUMBER="11518"
-PKG_REV="109"
+PKG_REV="110"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE="http://www.streamboard.tv/oscam/wiki"
@@ -14,7 +14,8 @@ PKG_DEPENDS_TARGET="toolchain openssl pcsc-lite"
 PKG_SECTION="service.softcam"
 PKG_SHORTDESC="OSCam: an Open Source Conditional Access Modul"
 PKG_LONGDESC="OSCam($PKG_VERSION_NUMBER) is a software to be used to decrypt digital television channels, as an alternative for a conditional access module."
-
+PKG_SHORTDESC_ES="OSCam: es un módulo de acceso condicional de código abierto"
+PKG_LONGDESC_ES="OSCam($PKG_VERSION_NUMBER) es un software que se utilizará para descifrar canales de televisión digital, como alternativa para un módulo de acceso condicional."
 PKG_IS_ADDON="yes"
 PKG_ADDON_NAME="OSCam"
 PKG_ADDON_TYPE="xbmc.service"
@@ -77,6 +78,14 @@ makeinstall_target() {
 
 addon() {
   mkdir -p $ADDON_BUILD/$PKG_ADDON_ID/bin
-    cp -P $PKG_BUILD/.$TARGET_NAME/oscam $ADDON_BUILD/$PKG_ADDON_ID/bin
-    cp -P $PKG_BUILD/.$TARGET_NAME/utils/list_smargo $ADDON_BUILD/$PKG_ADDON_ID/bin
+  
+  
+  cp $PKG_DIR/addon.xml $ADDON_BUILD/$PKG_ADDON_ID
+  
+  # set only version (revision will be added by buildsystem)
+  sed -e "s|@ADDON_VERSION@|$ADDON_VERSION|g" \
+      -i $ADDON_BUILD/$PKG_ADDON_ID/addon.xml
+      
+  cp -P $PKG_BUILD/.$TARGET_NAME/oscam $ADDON_BUILD/$PKG_ADDON_ID/bin
+  cp -P $PKG_BUILD/.$TARGET_NAME/utils/list_smargo $ADDON_BUILD/$PKG_ADDON_ID/bin
 }

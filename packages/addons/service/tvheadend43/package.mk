@@ -2,10 +2,10 @@
 # Copyright (C) 2018-present Team CoreELEC (https://coreelec.org)
 
 PKG_NAME="tvheadend43"
-PKG_VERSION="221c29b40b1e53ae09a69d9458442dd4fea665f5"
-PKG_SHA256="0c2cc2ee09d21b34f2d72d971557a843b20a9e7da3d6550c4ce2fbe37c35ba13"
-PKG_VERSION_NUMBER="221c29b"
-PKG_REV="101"
+PKG_VERSION="7e1dac82261dba52900e8d6def943d6149102875"
+PKG_SHA256="a6fef300f4a2194d32682bb4d62fd146da24783234bd07d38ce4ba36c85d878d"
+PKG_VERSION_NUMBER="7e1dac8"
+PKG_REV="104"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE="http://www.tvheadend.org"
@@ -15,6 +15,8 @@ PKG_DEPENDS_TARGET="toolchain avahi comskip curl dvb-apps ffmpegx libdvbcsa libh
 PKG_SECTION="service"
 PKG_SHORTDESC="Tvheadend: a TV streaming server for Linux"
 PKG_LONGDESC="Tvheadend ($PKG_VERSION_NUMBER): is a TV streaming server for Linux supporting DVB-S/S2, DVB-C, DVB-T/T2, IPTV, SAT>IP, ATSC and ISDB-T"
+PKG_SHORTDESC_ES="Tvheadend: un servidor de transmisión de TV para Linux"
+PKG_LONGDESC_ES="Tvheadend ($PKG_VERSION_NUMBER): es un servidor de transmisión de TV para Linux compatible DVB-S/S2, DVB-C, DVB-T/T2, IPTV, SAT>IP, ATSC y ISDB-T"
 
 PKG_IS_ADDON="yes"
 PKG_ADDON_NAME="Tvheadend Server 4.3"
@@ -47,7 +49,7 @@ if [[ "$TARGET_ARCH" != "x86_64" ]]; then
 fi
 
 post_unpack() {
-  sed -e 's/VER="0.0.0~unknown"/VER="'$PKG_VERSION_NUMBER' ~ CoreELEC Tvh-addon v'$ADDON_VERSION'.'$PKG_REV'"/g' -i $PKG_BUILD/support/version
+  sed -e 's/VER="0.0.0~unknown"/VER="'$PKG_VERSION_NUMBER' ~ masQelec Tvh-addon v'$ADDON_VERSION'.'$PKG_REV'"/g' -i $PKG_BUILD/support/version
   sed -e 's|'/usr/bin/pngquant'|'$TOOLCHAIN/bin/pngquant'|g' -i $PKG_BUILD/support/mkbundle
 }
 
