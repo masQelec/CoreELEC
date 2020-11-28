@@ -5,7 +5,7 @@
 PKG_NAME="ffmpeg"
 # Current branch is: release/4.0-kodi
 PKG_VERSION="4.2.4-Leia-18.9"
-PKG_SHA256="d3b551f20b89259bf72c0998fd9970b49e3fd045c09bd64a398658bf7943f73a"
+PKG_SHA256="6443b709e1442b10b8b0e2ba29c858d2963ddf7ca86e54478313b9b0d3bb8ec3"
 PKG_LICENSE="LGPLv2.1+"
 PKG_SITE="https://ffmpeg.org"
 PKG_URL="https://github.com/CoreELEC/FFmpeg/archive/${PKG_VERSION}.tar.gz"
