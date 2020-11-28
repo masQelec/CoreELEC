@@ -13,14 +13,14 @@ PKG_PATCH_DIRS="$KODI_VENDOR"
 
 case $KODI_VENDOR in
   amlogic-3.14)
-    PKG_VERSION="00ff7594e42e9539912c9bd12c5a6a9d1b9d8d78"
-    PKG_SHA256="ae18e1aacda201baff526882168b639cdd634951d96ab1f634eef97a99ea64cf"
+    PKG_VERSION="019700691bf54e72b337cca61dbc6a6bc02d59bd"
+    PKG_SHA256=""
     PKG_URL="https://github.com/CoreELEC/xbmc/archive/$PKG_VERSION.tar.gz"
     PKG_SOURCE_NAME="kodi-$PKG_VERSION.tar.gz"
     ;;
   amlogic-4.9)
-    PKG_VERSION="1a9a85b775e6986680526fdafd3ea33b93873381"
-    PKG_SHA256="b63356b5b4e9e43f476234a4e6e477318f9129908930902305db2b26795b811b"
+    PKG_VERSION="7831631c42458cb498f3c0729590c4b72c2c4275"
+    PKG_SHA256=""
     PKG_URL="https://github.com/CoreELEC/xbmc/archive/$PKG_VERSION.tar.gz"
     PKG_SOURCE_NAME="kodi-$PKG_VERSION.tar.gz"
     ;;
@@ -213,10 +213,6 @@ configure_package() {
     KODI_ARCH="-DWITH_ARCH=$TARGET_ARCH"
   fi
 
-  if [ "$PROJECT" = "Amlogic" -o "$PROJECT" = "Amlogic-ng" ]; then
-    PKG_DEPENDS_TARGET="$PKG_DEPENDS_TARGET amlogic.displayinfo"
-  fi
-
   if [ "$DEVICE" = "Slice" -o "$DEVICE" = "Slice3" ]; then
     PKG_DEPENDS_TARGET="$PKG_DEPENDS_TARGET led_tools"
   fi
@@ -295,6 +291,7 @@ post_makeinstall_target() {
   rm -rf $INSTALL/usr/share/pixmaps
   rm -rf $INSTALL/usr/share/kodi/addons/skin.estouchy
   rm -rf $INSTALL/usr/share/kodi/addons/skin.estuary
+  rm -rf $INSTALL/usr/share/kodi/addons/repository.xbmc.org
   rm -rf $INSTALL/usr/share/kodi/addons/service.xbmc.versioncheck
   rm -rf $INSTALL/usr/share/kodi/addons/visualization.vortex
   rm -rf $INSTALL/usr/share/xsessions
@@ -324,11 +321,8 @@ post_makeinstall_target() {
     ln -sf /usr/bin/pastekodi $INSTALL/usr/bin/pastecrash
 
   mkdir -p $INSTALL/usr/share/kodi/addons
-    cp -R $PKG_DIR/config/os.openelec.tv $INSTALL/usr/share/kodi/addons
-    sed -e "s|@OS_VERSION@|$OS_VERSION|g" -i $INSTALL/usr/share/kodi/addons/os.openelec.tv/addon.xml
-    cp -R $PKG_DIR/config/os.libreelec.tv $INSTALL/usr/share/kodi/addons
-    sed -e "s|@OS_VERSION@|$OS_VERSION|g" -i $INSTALL/usr/share/kodi/addons/os.libreelec.tv/addon.xml
-    cp -R $PKG_DIR/config/repository.coreelec $INSTALL/usr/share/kodi/addons/$ADDON_REPO_ID
+    cp -R $PKG_DIR/sources/addons/resource.language.es_es $INSTALL/usr/share/kodi/addons/resource.language.es_es
+    cp -R $PKG_DIR/config/repository.masqelec $INSTALL/usr/share/kodi/addons/$ADDON_REPO_ID
     sed -e "s|@ADDON_URL@|$ADDON_URL|g" -i $INSTALL/usr/share/kodi/addons/$ADDON_REPO_ID/addon.xml
     sed -e "s|@ADDON_REPO_ID@|$ADDON_REPO_ID|g" -i $INSTALL/usr/share/kodi/addons/$ADDON_REPO_ID/addon.xml
     sed -e "s|@ADDON_REPO_NAME@|$ADDON_REPO_NAME|g" -i $INSTALL/usr/share/kodi/addons/$ADDON_REPO_ID/addon.xml
@@ -378,17 +372,13 @@ post_makeinstall_target() {
   ADDON_MANIFEST=$INSTALL/usr/share/kodi/system/addon-manifest.xml
   xmlstarlet ed -L -d "/addons/addon[text()='service.xbmc.versioncheck']" $ADDON_MANIFEST
   xmlstarlet ed -L -d "/addons/addon[text()='skin.estouchy']" $ADDON_MANIFEST
-  xmlstarlet ed -L --subnode "/addons" -t elem -n "addon" -v "os.libreelec.tv" $ADDON_MANIFEST
-  xmlstarlet ed -L --subnode "/addons" -t elem -n "addon" -v "os.openelec.tv" $ADDON_MANIFEST
+  xmlstarlet ed -L -d "/addons/addon[text()='repository.xbmc.org']" $ADDON_MANIFEST
   xmlstarlet ed -L --subnode "/addons" -t elem -n "addon" -v "$ADDON_REPO_ID" $ADDON_MANIFEST
-  xmlstarlet ed -L --subnode "/addons" -t elem -n "addon" -v "service.coreelec.settings" $ADDON_MANIFEST
+  xmlstarlet ed -L --subnode "/addons" -t elem -n "addon" -v "service.masqelec.settings" $ADDON_MANIFEST
+  xmlstarlet ed -L --subnode "/addons" -t elem -n "addon" -v "resource.language.es_es" $ADDON_MANIFEST
 
   if [ "$DRIVER_ADDONS_SUPPORT" = "yes" ]; then
     xmlstarlet ed -L --subnode "/addons" -t elem -n "addon" -v "script.program.driverselect" $ADDON_MANIFEST
-  fi
-
-  if [ "$PROJECT" = "Amlogic-ng" -o "$PROJECT" = "Amlogic" ]; then
-    xmlstarlet ed -L --subnode "/addons" -t elem -n "addon" -v "script.amlogic.displayinfo" $ADDON_MANIFEST
   fi
 
   if [ "$DEVICE" = "Slice" -o "$DEVICE" = "Slice3" ]; then
