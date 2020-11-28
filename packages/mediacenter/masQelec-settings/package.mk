@@ -2,8 +2,8 @@
 # Copyright (C) 2018-present masQelec
 
 PKG_NAME="masQelec-settings"
-PKG_VERSION="507c386ec3128e25dd56c930314dbb84887311e6"
-PKG_SHA256="560f65a466bb7720b75d94e488f1fc0e5fca1e89713cf9cfbd147128246c93fe"
+PKG_VERSION="3e2243f63f5c5514133cd1421a648a6be084a03b"
+PKG_SHA256=""
 PKG_LICENSE="GPL"
 PKG_SITE=""
 PKG_URL="https://github.com/masQelec/service.masqelec.settings/archive/$PKG_VERSION.tar.gz"
