@@ -2,7 +2,7 @@
 # Copyright (C) 2018-present masQelec
 
 PKG_NAME="masQelec-settings"
-PKG_VERSION="3e2243f63f5c5514133cd1421a648a6be084a03b"
+PKG_VERSION="69c6d5ebf2635e73c6a8fd01b71cb499fa73e00c"
 PKG_SHA256=""
 PKG_LICENSE="GPL"
 PKG_SITE=""
