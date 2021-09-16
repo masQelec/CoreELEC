@@ -2,10 +2,10 @@
 # Copyright (C) 2018-present Team CoreELEC (https://coreelec.org)
 
 PKG_NAME="tvheadend43"
-PKG_VERSION="c66e3bc7db52c1e1bcae9de86d8c6fe8ccb46aa4"
-PKG_SHA256="9395263baad1a109e4b779322b18f5e954a1094d8bda145ccf41e3a401fa1f59"
-PKG_VERSION_NUMBER="c66e3bc"
-PKG_REV="105"
+PKG_VERSION="8fc2dfa7e1b1b3b1e8ba6f78cd4a81f77fa6a736"
+PKG_SHA256=""
+PKG_VERSION_NUMBER="8fc2dfa"
+PKG_REV="106"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE="http://www.tvheadend.org"
