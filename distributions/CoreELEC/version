@@ -11,10 +11,10 @@
   OS_CODENAME="Nexus"
 
 # OS_STAGE: OS Release Stage (alpha, beta, rc, build)
-  OS_STAGE=""
+  OS_STAGE="build"
 
 # BUILD_NUM: Build number
-  BUILD_NUM=""
+  BUILD_NUM="1"
 
 # ADDON_VERSION: Addon version
   ADDON_VERSION=${OS_VERSION}

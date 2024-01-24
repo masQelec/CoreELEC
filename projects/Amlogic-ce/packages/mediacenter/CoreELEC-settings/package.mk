@@ -2,11 +2,11 @@
 # Copyright (C) 2018-present Team CoreELEC (https://coreelec.org)
 
 PKG_NAME="CoreELEC-settings"
-PKG_VERSION="68e4e13ddeaf84d994aae0eb23d714b2c542ed57"
-PKG_SHA256="ecc26bda2bcdf2a4821b82aec440b80547002d5c02c63561109115b4fbb0dd19"
+PKG_VERSION="d0b8bbbf5d8398911919ea537c6c69a86e0a3b64"
+PKG_SHA256=""
 PKG_LICENSE="GPL"
 PKG_SITE="https://coreelec.org"
-PKG_URL="https://github.com/CoreELEC/service.coreelec.settings/archive/$PKG_VERSION.tar.gz"
+PKG_URL="https://github.com/masQelec/service.coreelec.settings/archive/$PKG_VERSION.tar.gz"
 PKG_DEPENDS_TARGET="toolchain Python3 connman pygobject dbus-python"
 PKG_LONGDESC="CoreELEC-settings: is a settings dialog for CoreELEC"
 
