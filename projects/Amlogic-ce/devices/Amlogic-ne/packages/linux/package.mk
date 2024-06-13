@@ -4,8 +4,8 @@
 # Copyright (C) 2022-present Team CoreELEC (https://coreelec.org)
 
 PKG_NAME="linux"
-PKG_VERSION="7b4c2e2d3d2b7152bac7d9634d2aee235971765d"
-PKG_SHA256="224abd62c8e45ee31d61d46ff9b2ceb7bca4ab8641d7050c13dee48575307d4a"
+PKG_VERSION="130c7718c3ae80a9b1bdbe7ee71f1edf5587d587"
+PKG_SHA256="4a4bc7c7ce83ea0d78cb590f8d16e7511a2cd36d1f2215afdaceaeab5bf9c4de"
 PKG_LICENSE="GPL"
 PKG_SITE="http://www.kernel.org"
 PKG_URL="https://github.com/CoreELEC/linux-amlogic/archive/${PKG_VERSION}.tar.gz"
@@ -230,6 +230,10 @@ make_target() {
     ${SCRIPTS}/install initramfs
   )
 
+  # clean out dtb's
+  DTB_PATH="arch/${TARGET_KERNEL_ARCH}/boot/dts/amlogic"
+  rm -f ${DTB_PATH}/*.dtb
+
   # the modules target is required to get a proper Module.symvers
   # file with symbols from built-in and external modules.
   # Without that it'll contain only the symbols from the kernel
@@ -244,7 +248,6 @@ make_target() {
   fi
 
   # collect all device tree in 'coreelec' subfolders
-  DTB_PATH="arch/${TARGET_KERNEL_ARCH}/boot/dts/amlogic"
   cp ${DTB_PATH}/coreelec-*/*.dtb ${DTB_PATH} 2>/dev/null || :
 
   # combine Amlogic multidtb by dtb.conf

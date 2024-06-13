@@ -15,7 +15,7 @@ PKG_IS_KERNEL_PKG="yes"
 PKG_TOOLCHAIN="manual"
 
 make_target() {
-if [ "${TARGET_ARCH}" = "arm" ]; then
+if [ "${TARGET_KERNEL_ARCH}" = "arm" ]; then
   kernel_make -C $(kernel_path) M=${PKG_BUILD}/project_w1/vmac
 else
   kernel_make -C $(kernel_path) M=${PKG_BUILD}/project_w1/vmac \
